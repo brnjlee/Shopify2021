@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const getMovies =  _.debounce( async () => {
       try {
-        const { data } = await axios.get(`http://www.omdbapi.com/`, {
+        const { data } = await axios.get(`https://www.omdbapi.com/`, {
           params: {
             apikey: process.env.REACT_APP_API_KEY,
             i: process.env.REACT_APP_IMDB_ID,
