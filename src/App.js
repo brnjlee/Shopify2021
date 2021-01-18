@@ -23,15 +23,18 @@ function App() {
           }
         });
         if (data.Response === "True") {
-          setErrors({...errors, request: null});
+          setErrors(prevState => {
+            return {...prevState, request: null}
+          });
           setResultList(data.Search);
         } else {
-          setErrors({...errors, request: data.Error});
+          setErrors(prevState => {
+            return {...prevState, request: data.Error}
+          });
         }
       } catch (error) {
-        setErrors({
-          ...errors,
-          request: true,
+        setErrors(prevState => {
+          return {...prevState, request: error}
         });
       }
     }, 500);
